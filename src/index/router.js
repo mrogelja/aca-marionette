@@ -5,15 +5,10 @@ import HeaderService from '../header/service';
 export default Router.extend({
   initialize(options = {}) {
     this.container = options.container;
-
-    HeaderService.request('add', {
-      name: 'Home',
-      path: 'dd',
-      type: 'primary'
-    });
   },
 
   onBeforeEnter() {
+    HeaderService.request('hide');
   },
 
   routes: {

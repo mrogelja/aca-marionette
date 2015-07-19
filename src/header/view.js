@@ -11,6 +11,10 @@ export default ItemView.extend({
     role: 'navigation'
   },
 
+  collectionEvents: {
+    all: 'render'
+  },
+
   templateHelpers() {
     return {
       primaryItems: this.serializeWhere({ type: 'primary' }),
@@ -20,5 +24,13 @@ export default ItemView.extend({
 
   serializeWhere(props) {
     return _.invoke(this.collection.where(props), 'toJSON');
+  },
+
+  hide() {
+    this.$el.hide();
+  },
+
+  show() {
+    this.$el.show();
   }
 });

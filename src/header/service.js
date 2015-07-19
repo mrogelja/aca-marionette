@@ -18,7 +18,9 @@ const HeaderService = Service.extend({
   requests: {
     add: 'add',
     remove: 'remove',
-    activate: 'activate'
+    activate: 'activate',
+    hide: 'hide',
+    show: 'show'
   },
 
   add(model) {
@@ -30,11 +32,19 @@ const HeaderService = Service.extend({
     this.collection.remove(model);
   },
 
-  activate(model){
+  activate(model) {
     this.collection.invoke('set', 'active', false);
     if (model) {
       model.set('active', true);
     }
+  },
+
+  hide() {
+    this.view.hide();
+  },
+
+  show() {
+    this.view.show();
   }
 });
 
